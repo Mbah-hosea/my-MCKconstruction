@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCK Construction</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
+        header { background: linear-gradient(135deg, #002147, #004080); color: white; padding: 20px; text-align: center; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); }
+        header img { width: 220px; display: block; margin: 10px auto; }
+        nav { display: flex; justify-content: center; background: #003366; padding: 15px; flex-wrap: wrap; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); }
+        nav a { color: green; text-decoration: none; padding: 12px 20px; transition: 0.3s; font-weight: bold; border-radius: 5px; }
+        nav a:hover { background: #0056b3; }
+        .container { padding: 40px; text-align: center; background: white; margin: 20px auto; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); }
+        .carousel { position: relative; max-width: 80%; margin: auto; overflow: hidden; border-radius: 10px; }
+        .carousel img { width: 100%; display: none; transition: opacity 1s ease-in-out; }
+        .carousel img.active { display: block; opacity: 1; }
+        .carousel-buttons { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); }
+        .carousel-buttons button { background: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; cursor: pointer; font-size: 18px; border-radius: 50%; }
+        .services, .projects, .team, .testimonials { background: #e8eff5; padding: 40px; margin: 20px auto; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); }
+        .team img, .projects img { max-width: 100%; border-radius: 10px; margin-top: 10px; }
+        footer { background: #002147; color: white; text-align: center; padding: 20px; font-size: 14px; }
+        @media (max-width: 768px) {
+            nav { flex-direction: column; align-items: center; }
+            nav a { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to MCK Construction</h1>
+        <img src="logo3.png.jpg" alt="MCK Logo">
+    </header>
+    <nav>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#team">Our Team</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section id="about" class="container">
+        <h2>About Us</h2>
+        <p>We are MCK Construction, dedicated to providing high-quality construction services with professionalism and expertise. Our team is mobile and available for projects nationwide.</p>
+    </section>
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <p>We offer residential, commercial, and industrial construction services with a commitment to excellence.</p>
+    </section>
+    <section id="projects" class="projects">
+        <h2>Our Projects</h2>
+        <p>Browse through some of our latest work.</p>
+        <div class="carousel">
+            <img src="project1.jpg" alt="Project 1" class="active">
+            <img src="project2.jpg" alt="Project 2">
+            <img src="project3.jpg" alt="Project 3">
+            <div class="carousel-buttons">
+                <button onclick="prevSlide()">&#10094;</button>
+                <button onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+    </section>
+    <section id="team" class="team">
+        <h2>Meet Our Team</h2>
+        <p>We take pride in our skilled professionals who bring expertise and dedication to every project.</p>
+        <img src="team1.jpg" alt="Team at work">
+        <img src="team2.jpg" alt="Team collaborating">
+        <img src="boss.jpg" alt="Our CEO">
+    </section>
+    <section id="testimonials" class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <blockquote>"MCK Construction delivered our project on time and exceeded our expectations!" - John D.</blockquote>
+        <blockquote>"Professional and reliable team. Highly recommended!" - Sarah W.</blockquote>
+    </section>
+    <section id="contact" class="container">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:contact@mckconstruction.com">contact@mckconstruction.com</a></p>
+        <p>Phone: <a href="tel:+237671694035">(+237) 671694035</a></p>
+        <p>Follow us on <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a></p>
+    </section>
+    <footer>
+        <p>&copy; 2025 MCK Construction. All Rights Reserved.</p>
+    </footer><script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll(".carousel img");
+    
+    function showSlide(index) {
+        images.forEach((img, i) => {
+            img.classList.remove("active");
+            if (i === index) img.classList.add("active");
+        });
+    }
+    
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showSlide(currentIndex);
+    }
+    
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showSlide(currentIndex);
+    }
+    
+    setInterval(nextSlide, 5000);
+</script>
+
+</body>
+</html>
